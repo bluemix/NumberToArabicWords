@@ -25,5 +25,7 @@ the original implementation was in Qt, ported from https://github.com/01walid/Ar
 
 Android version
 ----
-https://github.com/bluemix/NumberToArabicWordsAndroid
-![ArabicNumberToWords](https://github.com/bluemix/NumberToArabicWordsAndroid/blob/master/device-2015-08-23-235431.png?raw=true)
+
+[![ArabicNumberToWords](https://github.com/bluemix/NumberToArabicWordsAndroid/blob/master/device-2015-08-23-235431.png)](https://github.com/bluemix/NumberToArabicWordsAndroid)
+
+
