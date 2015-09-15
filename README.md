@@ -1,6 +1,7 @@
 # NumberToArabicWords
-converting Arabic numbers to words, e.g., 314 => ثلاثمائة و أربع عشرة.
+converting Arabic numbers to words, e.g., 314 => ثلاثمائة و أربع عشرة.<br>
  تحويل الأرقام العربية إلى كتابات
+
 ```java
         ArabicTools arabicTools = new ArabicTools();
 
