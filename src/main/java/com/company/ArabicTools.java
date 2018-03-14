@@ -109,6 +109,7 @@ public class ArabicTools {
     }
 
     private void setArabicAppendedTwos() {
+        arabicAppendedTwos.add("مئتا");
         arabicAppendedTwos.add("ألفا");
         arabicAppendedTwos.add("مليونا");
         arabicAppendedTwos.add("مليارا");
@@ -172,7 +173,7 @@ public class ArabicTools {
     }
 
     public String numberToArabicWords(String n) {
-        return convertToArabic(n);
+        return convertToArabic(n).trim();
     }
 
 
@@ -296,10 +297,18 @@ public class ArabicTools {
         String retVal = "";
 
         if (hundreds > 0) {
-            if (tens == 0 && hundreds == 2) // حالة المضاف
-                retVal = arabicAppendedTwos.get(0);
-            else //  الحالة العادية
+            if (tens == 0 && hundreds == 2) {
+                // حالة المضاف
+                if (groupLevel == 0) {
+                    retVal = arabicHundreds.get(hundreds);
+                }
+                else {
+                    retVal = arabicAppendedTwos.get(0);
+                }
+            } else {
+                //  الحالة العادية
                 retVal = arabicHundreds.get(hundreds);
+            }
         }
 
         if (tens > 0) {
