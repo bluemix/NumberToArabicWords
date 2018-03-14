@@ -2,6 +2,10 @@ package com.company;
 
 public class Main {
 
+    /**
+     * Provides a simple example on how to use.
+     * @param args
+     */
     public static void main(String[] args) {
 
         ArabicTools arabicTools = new ArabicTools();
