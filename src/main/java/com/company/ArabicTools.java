@@ -173,7 +173,7 @@ public class ArabicTools {
     }
 
     public String numberToArabicWords(String n) {
-        return convertToArabic(n);
+        return convertToArabic(n).trim();
     }
 
 
