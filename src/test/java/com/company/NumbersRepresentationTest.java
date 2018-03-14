@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArabicToolsTest {
+public class NumbersRepresentationTest {
 
 	@Test
 	public void representHundreds() {
