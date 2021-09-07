@@ -1,4 +1,4 @@
-package com.company;
+package util.arabic;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +10,6 @@ public class NumbersRepresentationTest {
 
 	@Test
 	public void representHundreds() {
-
 		Map<String, String> hundreds = new HashMap<>();
 
 		hundreds.put("100", "مائة");
@@ -63,10 +62,8 @@ public class NumbersRepresentationTest {
 	}
 
 	private void validateNumbersMap(Map<String, String> numbersMap) {
-		ArabicTools arabicTools = new ArabicTools();
 		for (Map.Entry<String, String> entry : numbersMap.entrySet()) {
-			String words = arabicTools.numberToArabicWords(entry.getKey());
-
+			String words = ArabicTools.numberToArabicWords(entry.getKey());
 			Assert.assertEquals(entry.getValue(), words);
 		}
 	}
