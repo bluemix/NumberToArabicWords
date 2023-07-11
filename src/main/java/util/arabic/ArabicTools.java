@@ -26,8 +26,23 @@ public class ArabicTools {
 
   @SuppressWarnings("BigDecimalMethodWithoutRoundingCalled")
   private static String convertToArabic(BigInteger number, boolean isFeminine) {
-    if (number.equals(BigInteger.ZERO)) {
-      return "صفر";
+    // this switch case prevents the empty string ("") return for 0, 1 and 2.
+    switch(number.toString())
+    {
+        case "0":
+            return "صفر";
+        
+        case "1":
+            if (isFeminine)
+                return "واحدة";
+            else
+                return "واحد";
+        
+        case "2":
+            if(isFeminine)
+                return "اثنتان";
+            else
+                return "اثنان"; 
     }
 
     BigDecimal tempNumber = new BigDecimal(number);
@@ -49,7 +64,7 @@ public class ArabicTools {
       if (!groupDescription.isEmpty()) { // here we add the new converted group to the previous concatenated text
         if (group > 0) {
           if (result.length() > 0) {
-            result.insert(0, "و" + " ");
+            result.insert(0, "و");
           }
           if (numberToProcess.compareTo(new BigDecimal(2)) != 0) {
             if (numberToProcess.remainder(new BigDecimal("100")).compareTo(BigDecimal.ONE) != 0) {
@@ -57,7 +72,8 @@ public class ArabicTools {
                 result.insert(0, arabicPluralGroups.get(group) + " ");
               } else {
                 if (result.length() > 0) { // use appending case
-                  result.insert(0, arabicAppendedGroup.get(group) + " ");
+                  if(!groupDescription.equals("ألف") && !groupDescription.equals("ألفان")) // this if statement prevents the adding of the word "ألفاً" after the two following words : ألف أو ألفان, if we do not add this if statement it will return for exemple : 1010 => ألف ألفاً و عشرة instead of the correct one => ألف و عشرة and for 2010 => ألفان ألفاً و عشرة instead of the correct one => ألفان و عشرة
+                    result.insert(0, arabicAppendedGroup.get(group) + " ");
                 } else {
                   result.insert(0, arabicGroup.get(group) + " "); // use normal case
                 }
